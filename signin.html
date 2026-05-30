@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Funngro Console</title>
+    <!-- Tailwind CSS Script CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Pro/V6 Kit Link for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 font-sans text-slate-200 min-h-screen flex items-center justify-center p-4 relative overflow-x-hidden">
+
+    <!-- Glowing Vector Orbs for Background Accent Depth -->
+    <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <!-- MAIN LOGIN CARD WRAPPER -->
+    <div class="w-full max-w-md bg-slate-900/40 border border-white/5 backdrop-blur-2xl p-8 rounded-3xl shadow-[0_30px_70px_rgba(0,0,0,0.8)] relative group">
+        <div class="absolute top-0 left-12 right-12 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent"></div>
+
+        <!-- Return Back to Home Trigger -->
+        <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white mb-8 transition-colors group/back">
+            <i class="fa-solid fa-arrow-left transition-transform group-hover/back:-translate-x-1"></i> Return to Main Platform
+        </a>
+
+        <!-- Card Brand Identity Header -->
+        <div class="mb-8">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center mb-4 shadow-xl shadow-indigo-500/10">
+                <i class="fa-solid fa-shield-keyhole text-white text-xl"></i>
+            </div>
+            <h2 class="text-2xl font-extrabold text-white tracking-tight">Access Gate Engine</h2>
+            <p class="text-xs text-slate-400 mt-1.5">Enter any credentials setup to trigger your localized secure profile proxy redirect.</p>
+        </div>
+
+        <!-- USER INTERACTION CREDENTIALS FORM -->
+        <form id="auth-gate-form" class="space-y-5">
+            
+            <!-- Email Access Input Group -->
+            <div class="space-y-2">
+                <label for="email" class="text-[11px] font-mono uppercase tracking-widest text-slate-400">Identity Identifier</label>
+                <div class="relative group/input">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/input:text-indigo-400 transition-colors">
+                        <i class="fa-solid fa-envelope-open text-xs"></i>
+                    </span>
+                    <input type="email" id="email" required placeholder="name@domain.com"
+                        class="w-full pl-11 pr-4 py-3.5 bg-slate-950/60 border border-white/5 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/40 focus:ring-2 focus:ring-indigo-500/10 transition-all">
+                </div>
+            </div>
+
+            <!-- Password Access Input Group -->
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <label for="password" class="text-[11px] font-mono uppercase tracking-widest text-slate-400">Security Cipher</label>
+                    <a href="#" class="text-[11px] text-slate-500 hover:text-indigo-400 transition-colors">Forgot Cipher?</a>
+                </div>
+                <div class="relative group/input">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/input:text-emerald-400 transition-colors">
+                        <i class="fa-solid fa-lock-keyhole text-xs"></i>
+                    </span>
+                    <input type="password" id="password" required placeholder="••••••••••••"
+                        class="w-full pl-11 pr-4 py-3.5 bg-slate-950/60 border border-white/5 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/10 transition-all">
+                </div>
+            </div>
+
+            <!-- Secondary Options Remembers -->
+            <div class="flex items-center gap-2 pt-1">
+                <input type="checkbox" id="remember" checked class="w-4 h-4 rounded border-white/5 bg-slate-950 accent-indigo-500 text-indigo-500 focus:ring-0 cursor-pointer">
+                <label for="remember" class="text-xs text-slate-400 select-none cursor-pointer hover:text-slate-300 transition-colors">Keep cloud node terminal instance authorized</label>
+            </div>
+
+            <!-- Dynamic Execution Trigger Button -->
+            <button type="submit" id="submit-btn" 
+                class="w-full mt-2 bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white font-bold text-sm py-3.5 rounded-xl transition-all hover:brightness-110 shadow-lg shadow-indigo-500/10 active:scale-[0.99] flex items-center justify-center gap-2 group/btn">
+                <span>Unlock Console Pipeline</span>
+                <i class="fa-solid fa-circle-nodes text-xs opacity-60 group-hover/btn:translate-x-0.5 transition-transform"></i>
+            </button>
+
+        </form>
+
+        <!-- Informational Footer Layer -->
+        <p class="text-center text-[11px] text-slate-500 mt-6">
+            Protected by hardware-isolated perimeter security arrays. <a href="auth.html" class="text-slate-400 hover:text-white underline transition-colors">Core Nodes Logs</a>
+        </p>
+    </div>
+
+    <!-- INTERNAL ROUTING SYSTEM SCRIPT BLOCK -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('auth-gate-form');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (form && submitBtn) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Intercept default browser page reloads
+                    
+                    // Trigger interactive dynamic loader system state
+                    submitBtn.disabled = true;
+                    submitBtn.classList.remove('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600');
+                    submitBtn.classList.add('bg-slate-800', 'text-slate-400', 'cursor-not-allowed');
+                    
+                    submitBtn.innerHTML = `
+                        <i class="fa-solid fa-spinner-third text-sm animate-spin text-emerald-400"></i>
+                        <span>Syncing Proxy Profiles...</span>
+                    `;
+
+                    // Generate safe delay window before dynamic forwarding loop
+                    setTimeout(() => {
+                        window.location.href = "dashboard.html";
+                    }, 1200); // 1.2s delay for modern framework rendering illusion
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

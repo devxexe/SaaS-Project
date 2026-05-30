@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funngro Systems - Architecture Matrix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { 
+            background-color: #020617; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: #f1f5f9; 
+        }
+        .glass-panel { 
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 41, 59, 0.4) 100%);
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Custom scrollbar for terminal look */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: rgba(255,255,255,0.01); }
+        ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.2); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(99, 102, 241, 0.4); }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen relative overflow-x-hidden">
+
+    <!-- Ambient Background Glows -->
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-indigo-600/5 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto space-y-6">
+        
+        <!-- Header Section -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 glass-panel p-6 md:p-8 rounded-3xl relative overflow-hidden group">
+            <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent"></div>
+            
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center shadow-inner group-hover:border-indigo-500/30 transition-all duration-300">
+                    <i class="fa-solid fa-server text-indigo-400 text-xl animate-pulse"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-2xl font-bold tracking-tight text-white">Funngro Systems</h1>
+                        <span class="text-[10px] uppercase font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded-md">v2.4.0</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-0.5">Cloud Systems Engine Workspace Architecture Matrix</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-4 md:gap-8 border-t md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0 pl-0 md:pl-8 w-full md:w-auto">
+                <div class="min-w-[100px]">
+                    <p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">System Status</p>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]"></span>
+                        <span class="text-emerald-400 text-sm font-bold tracking-wide">OPERATIONAL</span>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Global Latency</p>
+                    <p class="text-white text-sm font-bold font-mono bg-slate-900/60 border border-white/5 px-2 py-0.5 rounded-lg text-center">14ms</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Metrics Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-6">
+            
+            <!-- Traffic Intensity Analysis Chart -->
+            <div class="glass-panel p-6 rounded-3xl col-span-1 md:grid-cols-1 md:col-span-3 xl:col-span-2 flex flex-col justify-between">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-chart-simple text-xs text-indigo-400"></i>
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Traffic Intensity Analysis</h3>
+                    </div>
+                    <span class="text-[10px] font-mono text-slate-500">Live Stream (60s)</span>
+                </div>
+                <div class="h-40 flex items-end gap-[2px] pt-4 px-1 bg-slate-950/40 rounded-2xl border border-white/5" id="traffic-chart"></div>
+            </div>
+            
+            <!-- Node Core Stability -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col justify-between">
+                <div class="flex items-center gap-2 mb-6">
+                    <i class="fa-solid fa-network-wired text-xs text-teal-400"></i>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Node Core Stability</h3>
+                </div>
+                <div class="space-y-3 font-mono text-xs flex-grow justify-center flex flex-col">
+                    <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-xl border border-white/5">
+                        <span class="text-slate-400 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> US-EAST-01</span>
+                        <span class="text-emerald-400 font-bold">99.9%</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-xl border border-white/5">
+                        <span class="text-slate-400 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> EU-FRANK-02</span>
+                        <span class="text-emerald-400 font-bold">99.8%</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-xl border border-white/5">
+                        <span class="text-slate-400 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> AP-MUMB-01</span>
+                        <span class="text-emerald-400 font-bold">100.0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Perimeter -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col justify-between items-center text-center">
+                <div class="flex items-center gap-2 w-full justify-start text-left mb-4">
+                    <i class="fa-solid fa-shield-halved text-xs text-indigo-400"></i>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Security Perimeter</h3>
+                </div>
+                <div class="py-4 relative flex flex-col items-center justify-center flex-grow">
+                    <!-- Subtle pulsing radar effect behind shield -->
+                    <div class="absolute w-20 h-20 bg-indigo-500/10 rounded-full animate-ping pointer-events-none"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-slate-900 border border-indigo-500/20 flex items-center justify-center mb-3 shadow-lg relative z-10">
+                        <i class="fa-solid fa-shield-halved text-2xl text-indigo-400"></i>
+                    </div>
+                    <p class="text-xs text-slate-400 font-medium">Next-Gen Network Firewall</p>
+                </div>
+                <div class="w-full bg-emerald-500/10 border border-emerald-500/20 py-2 rounded-xl">
+                    <p class="text-xs font-mono font-bold text-emerald-400">SYSTEM PROTECTED & SECURE</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Console & Health Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- Real-Time Event Stream Terminal -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-xs text-emerald-400"></i>
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Real-Time Event Stream</h3>
+                    </div>
+                    <div class="flex gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-red-500/40"></span>
+                        <span class="w-2 h-2 rounded-full bg-yellow-500/40"></span>
+                        <span class="w-2 h-2 rounded-full bg-green-500/40"></span>
+                    </div>
+                </div>
+                <div class="font-mono text-[11px] h-64 overflow-y-auto space-y-2 text-slate-400 bg-slate-950/80 p-4 rounded-2xl border border-white/5 shadow-inner" id="log-console">
+                    <!-- Dynamic logs injection -->
+                </div>
+            </div>
+            
+            <!-- System Health Metrics Progress Bars -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col justify-between">
+                <div class="flex items-center gap-2 mb-6">
+                    <i class="fa-solid fa-heart-pulse text-xs text-rose-400"></i>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">System Health Metrics</h3>
+                </div>
+                <div class="space-y-6 flex-grow flex flex-col justify-center">
+                    <!-- Bar 1 -->
+                    <div class="bg-slate-900/40 p-4 rounded-2xl border border-white/5">
+                        <div class="flex justify-between mb-2.5 text-xs">
+                            <span class="text-slate-300 font-medium flex items-center gap-2"><i class="fa-solid fa-box text-[10px] text-indigo-400"></i> Data Packet Processing</span>
+                            <span class="font-mono font-bold text-indigo-400">88%</span>
+                        </div>
+                        <div class="h-2 bg-slate-950 rounded-full overflow-hidden p-[1px] border border-white/5">
+                            <div class="h-full bg-gradient-to-r from-indigo-600 to-indigo-400 rounded-full w-[88%] shadow-[0_0_10px_rgba(99,102,241,0.3)]"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bar 2 -->
+                    <div class="bg-slate-900/40 p-4 rounded-2xl border border-white/5">
+                        <div class="flex justify-between mb-2.5 text-xs">
+                            <span class="text-slate-300 font-medium flex items-center gap-2"><i class="fa-solid fa-bolt text-[10px] text-emerald-400"></i> Cache Efficiency Matrix</span>
+                            <span class="font-mono font-bold text-emerald-400">94%</span>
+                        </div>
+                        <div class="h-2 bg-slate-950 rounded-full overflow-hidden p-[1px] border border-white/5">
+                            <div class="h-full bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full w-[94%] shadow-[0_0_10px_rgba(52,211,153,0.3)]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Back Navigation Link -->
+        <div class="text-center pt-2">
+            <a href="index.html" class="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-indigo-400 transition-colors font-medium group">
+                <i class="fa-solid fa-arrow-left text-[10px] group-hover:-translate-x-1 transition-transform"></i> Back to Systems Console
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Smooth Simulated Chart Generator
+        const chart = document.getElementById('traffic-chart');
+        const totalBars = 60;
+        
+        for(let i=0; i<totalBars; i++) {
+            const bar = document.createElement('div');
+            // Give variation to background gradients using different opacity tiers
+            bar.className = 'w-full bg-gradient-to-t from-indigo-600/20 to-indigo-400/50 rounded-t-sm hover:to-indigo-400 transition-all duration-300';
+            bar.style.height = (25 + Math.random() * 65) + '%';
+            chart.appendChild(bar);
+        }
+
+        // Real-Time Live Log Console
+        const log = document.getElementById('log-console');
+        const sequences = [
+            "Node_Sync_Sequence_Initiated", 
+            "Data_Packet_Routing_Verified", 
+            "Cache_Purge_Routine_Success", 
+            "Perimeter_Firewall_Scan_Clear", 
+            "API_Gateway_Payload_Dispatched",
+            "Latency_Matrix_Recalibrated"
+        ];
+
+        setInterval(() => {
+            const entry = document.createElement('div');
+            entry.className = 'flex items-start gap-2 py-0.5 border-b border-white/[0.02] last:border-0';
+            
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'text-slate-600 shrink-0';
+            timeSpan.innerText = `[${new Date().toLocaleTimeString()}]`;
+            
+            const arrowSpan = document.createElement('span');
+            arrowSpan.className = 'text-emerald-500 font-bold shrink-0';
+            arrowSpan.innerText = '>>';
+
+            const messageSpan = document.createElement('span');
+            const randomRoute = sequences[Math.floor(Math.random() * sequences.length)];
+            const randomHex = Math.floor(Math.random() * 0xFFFFF).toString(16).toUpperCase();
+            messageSpan.innerText = `${randomRoute}_0x${randomHex}`;
+            
+            entry.appendChild(timeSpan);
+            entry.appendChild(arrowSpan);
+            entry.appendChild(messageSpan);
+            
+            log.prepend(entry);
+            
+            // Limit elements inside live console tracking window
+            if(log.children.length > 30) {
+                log.lastElementChild.remove();
+            }
+        }, 1200);
+    </script>
+</body>
+</html>

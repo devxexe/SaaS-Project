@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funngro Systems - Developer Documentation Reference</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-[#030712] font-sans antialiased text-slate-300 min-h-screen flex flex-col">
+
+    <header class="h-16 border-b border-white/5 bg-slate-950/60 backdrop-blur-md px-6 flex items-center justify-between sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-emerald-500 to-indigo-500 flex items-center justify-center shadow-md">
+                <i class="fa-solid fa-wind text-white text-xs"></i>
+            </div>
+            <span class="font-heading font-extrabold text-lg text-white">Funngro<span class="text-emerald-400 font-medium"></span></span>
+        </a>
+        <div class="flex items-center gap-4">
+            <a href="dashboard.html" class="text-xs font-semibold text-slate-400 hover:text-emerald-400 transition-colors"><i class="fa-solid fa-chart-pie mr-1"></i> Console Dashboard</a>
+            <a href="index.html" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white font-medium text-xs transition-all">Back to Home</a>
+        </div>
+    </header>
+
+    <div class="flex-1 flex max-w-7xl w-full mx-auto relative items-start">
+        
+        <aside class="w-64 border-r border-white/5 p-6 h-[calc(100vh-4rem)] sticky top-16 hidden md:flex flex-col gap-6 overflow-y-auto text-xs font-medium">
+            <div class="space-y-2">
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-2">Getting Started</p>
+                <a href="#intro" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 transition-all doc-nav-link"><i class="fa-solid fa-book-open w-4"></i> Platform Introduction</a>
+                <a href="#sdk-install" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all doc-nav-link"><i class="fa-solid fa-download w-4"></i> SDK Installation</a>
+                <a href="#authentication" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all doc-nav-link"><i class="fa-solid fa-key w-4"></i> Session Token Auth</a>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-2">Core API Endpoints</p>
+                <a href="#pipelines-api" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all doc-nav-link"><i class="fa-solid fa-circle-nodes w-4"></i> Trigger Pipelines Node</a>
+                <a href="#logs-api" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all doc-nav-link"><i class="fa-solid fa-terminal w-4"></i> Streaming Log Traces</a>
+                <a href="#webhooks" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all doc-nav-link"><i class="fa-solid fa-satellite-dish w-4"></i> Webhooks & Event Listeners</a>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-2">System Architecture</p>
+                <a href="#rate-limits" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all doc-nav-link"><i class="fa-solid fa-gauge w-4"></i> Rate Limits & Capacity</a>
+                <a href="#status-codes" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all doc-nav-link"><i class="fa-solid fa-triangle-exclamation w-4"></i> Platform Status Errors</a>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-6 md:p-10 space-y-16 max-w-4xl overflow-hidden">
+            
+            <section id="intro" class="scroll-mt-24 space-y-4">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[10px] uppercase font-bold">v1.4.0 Architecture</div>
+                <h1 class="font-heading font-extrabold text-3xl text-white tracking-tight">Platform Introduction</h1>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Funngro Cloud Systems Engine ek premium enterprise infrastructure framework template hai, jo custom web assets distribution orchestration aur automatic load data management systems ko handle karta hai. Is documentation ka maqsad developers ko unke external systems ko Funngro node network se bina kisi friction ke connect karna sikhana hai.
+                </p>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Hamara architecture design ultra-low latency benchmarks, parallel streaming buffers, aur isolated sandboxed deployment paradigms par mabni hai jo global data conversion rules ko maintain karte hain.
+                </p>
+            </section>
+
+            <section id="sdk-install" class="scroll-mt-24 space-y-4">
+                <h2 class="font-heading font-bold text-2xl text-white tracking-tight">SDK Installation</h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Funngro components ko apne client-side ya server-side package environment me shamil karne ke liye niche diye gaye terminal commands ke zariye official production SDK module fetch karein.
+                </p>
+
+                <div class="rounded-xl bg-slate-950 border border-white/5 overflow-hidden font-mono text-xs shadow-lg">
+                    <div class="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-white/5 text-[11px] font-bold text-slate-500">
+                        <span>Node Package Manager Terminal</span>
+                    </div>
+                    <pre class="p-4 text-slate-300 overflow-x-auto leading-relaxed"><code><span class="text-slate-500"># Install via npm package control</span>
+<span class="text-teal-400">npm</span> install @funngro/core-systems-sdk --save
+
+<span class="text-slate-500"># Install via yarn workspace architecture</span>
+<span class="text-teal-400">yarn</span> add @funngro/core-systems-sdk</code></pre>
+                </div>
+            </section>
+
+            <section id="authentication" class="scroll-mt-24 space-y-4">
+                <h2 class="font-heading font-bold text-2xl text-white tracking-tight">Session Token Authentication</h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Funngro REST APIs aur pipeline streaming systems se securely communicate karne ke liye aapko har outbound web request ke HTTP header me ek active master account validation key authorization inject karni hoti hai. Naye access tokens generate karne ke liye aap apne secured Console Dashboard ke portal status window me visit kar sakte hain.
+                </p>
+                
+                <div class="rounded-xl bg-slate-950 border border-white/5 overflow-hidden font-mono text-xs shadow-lg glow-indigo">
+                    <div class="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-white/5 text-[11px] font-bold text-slate-500">
+                        <span>HTTP Authorization Request Header Format</span>
+                        <span class="text-indigo-400 uppercase text-[9px] font-mono tracking-wider">JSON Meta</span>
+                    </div>
+                    <pre class="p-4 text-emerald-400 overflow-x-auto"><code>Authorization: Bearer funngro_live_node_secret_key_matrix_token_v140</code></pre>
+                </div>
+                <blockquote class="border-l-2 border-amber-500/50 bg-amber-500/5 p-4 rounded-r-xl text-xs text-amber-300/90 leading-relaxed">
+                    <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-400"></i><strong>Security Warning:</strong> Apne live production credentials tokens ko kabhi bhi github commits ya public client scripts me direct hard-code na karein. Hamesha environment profiles variable structures use karein.
+                </blockquote>
+            </section>
+
+            <section id="pipelines-api" class="scroll-mt-24 space-y-4">
+                <h2 class="font-heading font-bold text-2xl text-white tracking-tight">Trigger Pipelines Node Hook</h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Naya active production cluster stream workflow register karne ke liye aap core master endpoint routing architecture par structural attributes send kar sakte hain.
+                </p>
+
+                <div class="flex items-center gap-3 font-mono text-xs py-1">
+                    <span class="px-2.5 py-1 bg-indigo-500 text-white font-bold rounded uppercase text-[10px]">POST</span>
+                    <span class="text-slate-400 text-[11px]">https://api.funngro.io/v1/infrastructure/pipeline/register-node</span>
+                </div>
+
+                <div class="rounded-xl border border-white/5 overflow-hidden my-3">
+                    <div class="p-3 bg-slate-950/40 border-b border-white/5 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Request JSON Payload Keys Definitions</div>
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="text-[10px] font-bold uppercase text-slate-500 tracking-wider bg-slate-950/20 border-b border-white/5">
+                                <th class="p-3 pl-4">Parameter Key Name</th>
+                                <th class="p-3">Data Type</th>
+                                <th class="p-3 pr-4">Description / Constraints</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-300 divide-y divide-white/5 font-mono text-[11px]">
+                            <tr>
+                                <td class="p-3 pl-4 font-bold text-white">node_name</td>
+                                <td class="p-3 text-indigo-400">String</td>
+                                <td class="p-3 text-slate-400">Unique identifier label for your custom server node link element.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 pl-4 font-bold text-white">stream_type</td>
+                                <td class="p-3 text-indigo-400">String</td>
+                                <td class="p-3 text-slate-400">Target routing layer model category. Accepted fields: API-Relay, Database-SQL.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="rounded-xl bg-slate-950 border border-white/5 overflow-hidden font-mono text-xs shadow-lg">
+                    <div class="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-white/5 text-[11px] font-bold text-slate-500">
+                        <span>cURL Protocol Terminal Bash Interface</span>
+                    </div>
+                    <pre class="p-4 text-slate-300 overflow-x-auto leading-relaxed"><code><span class="text-teal-400">curl</span> -X POST https://api.funngro.io/v1/pipeline/register-node \
+  -H <span class="text-amber-400">"Authorization: Bearer YOUR_TOKEN"</span> \
+  -H <span class="text-amber-400">"Content-Type: application/json"</span> \
+  -d <span class="text-emerald-400">'{ "node_name": "Webhook-Relay-Node-v3", "stream_type": "API-Relay" }'</span></code></pre>
+                </div>
+            </section>
+
+            <section id="logs-api" class="scroll-mt-24 space-y-4">
+                <h2 class="font-heading font-bold text-2xl text-white tracking-tight">Streaming Server Log Traces Logs</h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Live system metrics log arrays outputs real-time streams dashboards telemetry coordinates ko read karne ke liye niche diya gaya implementation script trace setup execute karein.
+                </p>
+
+                <div class="flex items-center gap-3 font-mono text-xs py-1">
+                    <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/10 font-bold rounded uppercase text-[10px]">GET</span>
+                    <span class="text-slate-400 text-[11px]">https://api.funngro.io/v1/infrastructure/terminal/stream-logs</span>
+                </div>
+
+                <div class="rounded-xl bg-slate-950 border border-white/5 overflow-hidden font-mono text-xs shadow-lg glow-emerald">
+                    <div class="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-white/5 text-[11px] font-bold text-slate-500">
+                        <span>Javascript Execution Code Block Component</span>
+                        <span class="text-emerald-400 text-[10px]">javascript</span>
+                    </div>
+                    <pre class="p-4 text-slate-400 overflow-x-auto leading-relaxed"><code><span class="text-indigo-400">const</span> { FunngroEngineEngine } = <span class="text-teal-400">require</span>(<span class="text-amber-400">'@funngro/core-systems-sdk'</span>);
+<span class="text-indigo-400">const</span> clientInstance = <span class="text-indigo-400">new</span> <span class="text-teal-400">FunngroEngineEngine</span>({ token: <span class="text-amber-400">'YOUR_SECRET_KEY'</span> });
+
+<span class="text-slate-500">// Fetch live cloud tracing diagnostics indices parameters array logs</span>
+clientInstance.<span class="text-teal-400">fetchTerminalLogs</span>({ filter: <span class="text-amber-400">'SUCCESS'</span> })
+  .<span class="text-teal-400">then</span>(logsBuffer => {
+     console.<span class="text-teal-400">log</span>(<span class="text-amber-400">`Active streaming vector target indices: ${logsBuffer}`</span>);
+  })
+  .<span class="text-teal-400">catch</span>(streamError => console.<span class="text-teal-400">error</span>(streamError));</code></pre>
+                </div>
+            </section>
+
+            <section id="webhooks" class="scroll-mt-24 space-y-4">
+                <h2 class="font-heading font-bold text-2xl text-white tracking-tight">Webhooks & Event Listeners</h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Jab bhi hamare servers cluster core end array me koi internal state status change trigger hota hai (jaise node modification, pricing tier status transformation, payload error data transfers), hum direct aapke configure kiye huye destination secure backend listener server framework URL layer par secure payload push notifications dispatch karte hain.
+                </p>
+
+                <div class="rounded-xl bg-slate-950 border border-white/5 overflow-hidden font-mono text-xs shadow-lg">
+                    <div class="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-white/5 text-[11px] font-bold text-slate-500">
+                        <span>Incoming Webhook Listener JSON Response Framework Payload Example</span>
+                    </div>
+                    <pre class="p-4 text-slate-300 overflow-x-auto leading-relaxed"><code>{
+  <span class="text-indigo-400">"event_id"</span>: <span class="text-emerald-400">"evt_2026_99b01"</span>,
+  <span class="text-indigo-400">"event_type"</span>: <span class="text-emerald-400">"pipeline.node_registered"</span>,
+  <span class="text-indigo-400">"timestamp"</span>: <span class="text-emerald-400">"2026-05-26T21:40:12Z"</span>,
+  <span class="text-indigo-400">"payload_details"</span>: {
+    <span class="text-indigo-400">"node_id"</span>: <span class="text-emerald-400">"funngro_node_core_v3"</span>,
+    <span class="text-indigo-400">"network_latency"</span>: <span class="text-emerald-400">"4ms"</span>
+  }
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="rate-limits" class="scroll-mt-24 space-y-4">
+                <h2 class="font-heading font-bold text-2xl text-white tracking-tight">Rate Limits & System Throttling Capacity</h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Funngro distributed network cluster servers gateway core structures automation elements pipeline systems health security aur uptime assurance ko constant scale framework optimization ratios me perform karne ke liye strictly endpoints request load capacity benchmarks verify karte hain.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="p-5 rounded-2xl border border-white/5 bg-slate-950/40">
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1">Sandbox Accounts Tier</span>
+                        <div class="text-xl font-black font-heading text-white">60 Requests / Min</div>
+                        <p class="text-slate-400 text-xs mt-1">Basic structural debugging access boundaries profiles limits.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl border border-emerald-500/20 bg-emerald-500/5">
+                        <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block mb-1">Scale Enterprise Pro Tier</span>
+                        <div class="text-xl font-black font-heading text-white">10,000 Requests / Min</div>
+                        <p class="text-slate-400 text-xs mt-1">High data volume production workflows parameters scaling acceleration.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="status-codes" class="scroll-mt-24 space-y-4">
+                <h2 class="font-heading font-bold text-2xl text-white tracking-tight">Platform System Error Status Codes</h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Funngro Engine integration workloads parameters errors distributions system debugging ke liye neeche diye gaye matrix values map layout configurations check karein.
+                </p>
+
+                <div class="rounded-2xl border border-white/5 overflow-hidden shadow-lg bg-slate-950/40">
+                    <table class="w-full text-left text-xs border-collapse divide-y divide-white/5">
+                        <thead>
+                            <tr class="text-[10px] font-bold uppercase text-slate-500 tracking-wider bg-slate-950/40 border-b border-white/5">
+                                <th class="p-4 pl-6">Code Target Matrix</th>
+                                <th class="p-4">Server Classification Description Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-300 divide-y divide-white/5">
+                            <tr>
+                                <td class="p-4 pl-6 font-mono font-bold text-emerald-400">200 SUCCESS</td>
+                                <td class="p-4 text-slate-400 leading-relaxed">Downstream cloud system pipelines components successfully responded target configurations frames parameters.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 pl-6 font-mono font-bold text-indigo-400">400 BAD_REQUEST</td>
+                                <td class="p-4 text-slate-400 leading-relaxed">The server payload object formatting layout contains parsing code errors or missing structural criteria vectors values parameters.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 pl-6 font-mono font-bold text-indigo-400">401 UNAUTHORIZED</td>
+                                <td class="p-4 text-slate-400 leading-relaxed">The session application authorization token parameter is missing inside http header stream profiles parameters or verification expired.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 pl-6 font-mono font-bold text-amber-400">429 TOO_MANY_REQUESTS</td>
+                                <td class="p-4 text-slate-400 leading-relaxed">Your active node pipeline request threshold stream has triggered throttling bounds limit rates. Minimize processing loop frequency.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 pl-6 font-mono font-bold text-amber-400">503 CLUSTER_DELAY</td>
+                                <td class="p-4 text-slate-400 leading-relaxed">Secondary cloud edge proxy balances validation server networks arrays are taking over structural limits threshold margins.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-slate-950 border-t border-white/5 py-8 text-center text-xs text-slate-600 mt-auto">
+        <p>© 2026 Funngro Cloud Systems Engine Architecture Manual Guide Reference Book.</p>
+    </footer>
+
+    <script>
+        const linksPool = document.querySelectorAll('.doc-nav-link');
+        linksPool.forEach(link => {
+            link.addEventListener('click', function() {
+                linksPool.forEach(el => {
+                    el.classList.remove('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/10');
+                    el.classList.add('hover:bg-white/5', 'text-slate-400');
+                });
+                this.classList.remove('hover:bg-white/5', 'text-slate-400');
+                this.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/10');
+            });
+        });
+    </script>
+</body>
+</html>

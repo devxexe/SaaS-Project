@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funngro Systems - Enterprise Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;600;700;800&family=Inter:wght=400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#030712] font-sans antialiased text-slate-200 min-h-screen flex">
+
+    <div class="absolute top-10 left-1/3 w-[400px] h-[400px] bg-indigo-600/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+    <div class="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
+
+    <aside class="w-64 bg-slate-950/60 backdrop-blur-md border-r border-white/5 p-6 flex flex-col justify-between hidden md:flex sticky top-0 h-screen">
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="flex items-center gap-3 px-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-indigo-500 flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-wind text-white text-sm"></i>
+                </div>
+                <span class="font-heading font-extrabold text-xl bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Funngro</span>
+            </a>
+
+            <nav class="flex flex-col gap-1.5" id="sidebar-nav">
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-2 mb-2">Core Workspace</p>
+                
+                <button onclick="switchDashboardTab('dashboard')" id="nav-dashboard" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 font-medium text-sm transition-all text-left">
+                    <i class="fa-solid fa-chart-pie text-base w-5"></i> Dashboard Overview
+                </button>
+                
+                <button onclick="switchDashboardTab('pipelines')" id="nav-pipelines" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-medium text-sm transition-all text-left">
+                    <i class="fa-solid fa-circle-nodes text-base w-5"></i> Pipelines Setup
+                </button>
+                
+                <button onclick="switchDashboardTab('logs')" id="nav-logs" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-medium text-sm transition-all text-left">
+                    <i class="fa-solid fa-bolt text-base w-5"></i> Automation Log
+                </button>
+
+                <button onclick="switchDashboardTab('billing')" id="nav-billing" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-medium text-sm transition-all text-left">
+                    <i class="fa-solid fa-credit-card text-base w-5"></i> Billing & Plans
+                </button>
+                
+                <button onclick="switchDashboardTab('settings')" id="nav-settings" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-medium text-sm transition-all text-left">
+                    <i class="fa-solid fa-sliders text-base w-5"></i> System Settings
+                </button>
+            </nav>
+        </div>
+
+        <div class="border-t border-white/5 pt-4 flex flex-col gap-3">
+            <div class="flex items-center gap-3 px-2">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center font-bold text-white text-sm">EX</div>
+                <div>
+                    <p class="text-xs font-bold text-white">Evaluator Node</p>
+                    <p class="text-[10px] text-slate-500">pro_tier@Funngro</p>
+                </div>
+            </div>
+            <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-xl text-red-400/80 hover:text-red-400 hover:bg-red-500/5 text-xs font-semibold transition-all">
+                <i class="fa-solid fa-right-from-bracket w-5"></i> Back to Home
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-w-0">
+        <header class="h-20 border-b border-white/5 bg-slate-950/20 backdrop-blur-sm px-6 md:px-8 flex items-center justify-between sticky top-0 z-40">
+            <div class="flex items-center gap-4 flex-1 max-w-md">
+                <i class="fa-solid fa-magnifying-glass text-slate-500 text-sm absolute ml-3.5"></i>
+                <input type="text" placeholder="Query pipelines, assets, or logs..." class="w-full bg-slate-900/60 border border-white/5 rounded-xl pl-10 pr-4 py-2 text-xs text-slate-300 focus:outline-none focus:border-emerald-500/40">
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full font-mono font-medium animate-pulse">
+                    <i class="fa-solid fa-circle text-[8px] mr-1.5 align-middle"></i>Live Node Sync
+                </span>
+            </div>
+        </header>
+
+        <div class="p-6 md:p-8 flex flex-col gap-8 max-w-7xl w-full mx-auto">
+            
+            <div id="section-dashboard" class="block space-y-8">
+                <div>
+                    <h1 class="font-heading font-extrabold text-2xl md:text-3xl text-white tracking-tight">System Workspace Console</h1>
+                    <p class="text-slate-400 text-xs md:text-sm mt-0.5">Welcome back! Here is your quick system health summary index matrix.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="glass-card p-5 rounded-2xl border border-white/5 flex items-center justify-between">
+                        <div class="flex flex-col gap-1">
+                            <p class="text-[11px] font-bold tracking-wider uppercase text-slate-500">API Gateway Status</p>
+                            <p class="text-2xl font-black font-heading text-white">99.98% Success</p>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-sm"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer" onclick="switchDashboardTab('pipelines')">
+                        <div class="flex flex-col gap-1">
+                            <p class="text-[11px] font-bold tracking-wider uppercase text-slate-500">System Flow Pipelines</p>
+                            <p class="text-2xl font-black font-heading text-white active-node-display-count">2 active nodes</p>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-sm"><i class="fa-solid fa-circle-nodes"></i></div>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer" onclick="switchDashboardTab('billing')">
+                        <div class="flex flex-col gap-1">
+                            <p class="text-[11px] font-bold tracking-wider uppercase text-slate-500">Active Tier Plan</p>
+                            <p class="text-2xl font-black font-heading text-emerald-400">Scale Pro Plan</p>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-sm"><i class="fa-solid fa-credit-card"></i></div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-white/5 bg-slate-950/20">
+                    <h3 class="font-heading font-bold text-sm text-white mb-2"><i class="fa-solid fa-circle-info text-indigo-400 mr-2"></i>Operator Tip</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Use the Left Sidebar Navigation menu grid layers to manage custom data schemas pipelines hooks or trace live cloud automation server triggers parameters execution outputs effortlessly.</p>
+                </div>
+            </div>
+
+            <div id="section-pipelines" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="font-heading font-extrabold text-2xl text-white tracking-tight">Active Infrastructure Pipelines</h2>
+                        <p class="text-slate-400 text-xs mt-0.5">Add, deploy, or clear database data transfer streams dynamically.</p>
+                    </div>
+                    <button onclick="addNewSimulatedRow()" class="px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:brightness-110 text-white font-semibold text-xs rounded-xl shadow-lg transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-plus text-sm"></i> Register New Node
+                    </button>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden glow-indigo">
+                    <div class="overflow-x-auto w-full">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-white/5 text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-slate-950/20">
+                                    <th class="p-4 pl-6">Pipeline ID/Name</th>
+                                    <th class="p-4">Type Link</th>
+                                    <th class="p-4">Status Flag</th>
+                                    <th class="p-4 text-right pr-6">Action Control</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pipeline-table-body" class="text-xs text-slate-300 divide-y divide-white/5">
+                                <tr class="hover:bg-white/[0.02] transition-colors">
+                                    <td class="p-4 pl-6 font-semibold text-white">Funngro-Core-Metrics</td>
+                                    <td class="p-4 text-slate-400 font-mono text-[11px]">Analytics-Stream</td>
+                                    <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-medium text-[10px]">Active</span></td>
+                                    <td class="p-4 text-right pr-6"><button onclick="deleteSimulatedRow(this)" class="text-slate-500 hover:text-red-400 transition-colors px-2"><i class="fa-regular fa-trash-can"></i></button></td>
+                                </tr>
+                                <tr class="hover:bg-white/[0.02] transition-colors">
+                                    <td class="p-4 pl-6 font-semibold text-white">Fanngro-Sync-Bridge</td>
+                                    <td class="p-4 text-slate-400 font-mono text-[11px]">Database-Hook</td>
+                                    <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-medium text-[10px]">Active</span></td>
+                                    <td class="p-4 text-right pr-6"><button onclick="deleteSimulatedRow(this)" class="text-slate-500 hover:text-red-400 transition-colors px-2"><i class="fa-regular fa-trash-can"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="section-logs" class="hidden space-y-6">
+                <div>
+                    <h2 class="font-heading font-extrabold text-2xl text-white tracking-tight">Automation Terminal Stream</h2>
+                    <p class="text-slate-400 text-xs mt-0.5">Real-time chronograph server events tracking execution triggers pipelines outputs.</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl border border-white/5 bg-slate-950/80 font-mono text-xs text-slate-300 space-y-3 h-[350px] overflow-y-auto glow-emerald" id="console-logs-container">
+                    <p class="text-slate-500">[2026-05-26 21:40:11] <span class="text-indigo-400">INFO</span> Booting engine configuration architecture framework validation logs layers...</p>
+                    <p class="text-slate-500">[2026-05-26 21:40:12] <span class="text-emerald-400">SUCCESS</span> Connected to master secure node node-core-asia-01 successfully.</p>
+                    <p class="text-slate-500">[2026-05-26 21:40:15] <span class="text-amber-400">WARN</span> Synchronization delays detected within secondary proxy arrays (6ms margin).</p>
+                    <p class="text-slate-500">[2026-05-26 21:41:02] <span class="text-indigo-400">INFO</span> Routing data payloads flow traffic channels into Fanngro-Sync-Bridge network hook.</p>
+                </div>
+            </div>
+
+            <div id="section-billing" class="hidden space-y-6">
+                <div>
+                    <h2 class="font-heading font-extrabold text-2xl text-white tracking-tight">Billing & Plans Management</h2>
+                    <p class="text-slate-400 text-xs mt-0.5">Manage your active cluster enterprise tier subscriptions, invoices, and payment parameters.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="glass-card p-6 rounded-2xl border border-emerald-500/20 bg-slate-950/20 relative overflow-hidden glow-emerald">
+                            <div class="absolute top-0 right-0 px-4 py-1.5 bg-emerald-500 text-white font-bold text-[10px] uppercase rounded-bl-xl tracking-wider">Active Subscription</div>
+                            <p class="text-xs text-slate-400 uppercase tracking-wide font-bold">Current Tier Plan</p>
+                            <h3 class="text-2xl font-black font-heading text-white mt-1">Scale Enterprise Pro</h3>
+                            <p class="text-xs text-slate-500 mt-1">Next invoice renewal terminal date: <span class="text-slate-300 font-mono">June 26, 2026</span></p>
+                            
+                            <div class="mt-6 space-y-2">
+                                <div class="flex justify-between text-xs font-medium"><span class="text-slate-400">Data Pipeline Streams Usage:</span><span class="text-slate-200 font-semibold">2 / Unlimited</span></div>
+                                <div class="w-full h-2 bg-slate-900 rounded-full overflow-hidden"><div class="w-[15%] h-full bg-emerald-500 rounded-full"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+                            <div class="p-4 bg-slate-950/40 border-b border-white/5"><h4 class="text-xs font-bold text-white uppercase tracking-wider">Invoice Billing History Matrix</h4></div>
+                            <table class="w-full text-left text-xs border-collapse divide-y divide-white/5">
+                                <thead>
+                                    <tr class="text-[10px] text-slate-500 font-bold bg-slate-950/10 uppercase tracking-wider">
+                                        <th class="p-4 pl-6">Invoice ID</th>
+                                        <th class="p-4">Billing Date</th>
+                                        <th class="p-4">Amount</th>
+                                        <th class="p-4 pr-6 text-right">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-300 divide-y divide-white/5">
+                                    <tr class="hover:bg-white/[0.01]">
+                                        <td class="p-4 pl-6 font-mono text-slate-400">INV-2026-0892</td>
+                                        <td class="p-4">May 26, 2026</td>
+                                        <td class="p-4 font-semibold text-white">₹49.00</td>
+                                        <td class="p-4 pr-6 text-right"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-medium text-[10px]">Paid</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.01]">
+                                        <td class="p-4 pl-6 font-mono text-slate-400">INV-2026-0411</td>
+                                        <td class="p-4">April 26, 2026</td>
+                                        <td class="p-4 font-semibold text-white">₹49.00</td>
+                                        <td class="p-4 pr-6 text-right"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-medium text-[10px]">Paid</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 space-y-4 bg-slate-950/20">
+                        <h4 class="text-xs font-bold text-white uppercase tracking-wider"><i class="fa-regular fa-credit-card text-indigo-400 mr-1.5"></i> Update Payment Method</h4>
+                        <div class="space-y-1.5">
+                            <label class="text-[10px] font-bold text-slate-400 uppercase">Card Holder Name</label>
+                            <input type="text" placeholder="John Doe" class="w-full bg-slate-900/60 border border-white/5 rounded-xl px-3 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-indigo-500/40">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[10px] font-bold text-slate-400 uppercase">Credit Card Number</label>
+                            <div class="relative flex items-center">
+                                <input type="text" placeholder="•••• •••• •••• 4242" class="w-full bg-slate-900/60 border border-white/5 rounded-xl pl-3 pr-10 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-indigo-500/40">
+                                <i class="fa-brands fa-cc-visa text-slate-500 absolute right-3.5 text-base"></i>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="space-y-1.5">
+                                <label class="text-[10px] font-bold text-slate-400 uppercase">Expiry</label>
+                                <input type="text" placeholder="MM/YY" class="w-full bg-slate-900/60 border border-white/5 rounded-xl px-3 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-indigo-500/40 text-center">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-[10px] font-bold text-slate-400 uppercase">CVC Code</label>
+                                <input type="text" placeholder="•••" class="w-full bg-slate-900/60 border border-white/5 rounded-xl px-3 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-indigo-500/40 text-center">
+                            </div>
+                        </div>
+                        <button class="w-full py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:brightness-110 text-white text-xs font-bold rounded-xl transition-all shadow-md shadow-indigo-500/10">Save Payment Profile</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="section-settings" class="hidden space-y-6">
+                <div>
+                    <h2 class="font-heading font-extrabold text-2xl text-white tracking-tight">System Node Variables</h2>
+                    <p class="text-slate-400 text-xs mt-0.5">Toggle live application workflows environments profiles rules structures parameters configuration elements.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-white/5 max-w-xl space-y-6">
+                    <div class="flex items-center justify-between pb-4 border-b border-white/5">
+                        <div>
+                            <p class="text-xs font-bold text-white">Debug Tracing Engine Modifiers</p>
+                            <p class="text-[11px] text-slate-500">Output detailed configuration telemetry matrix streams directly onto server hooks terminals.</p>
+                        </div>
+                        <input type="checkbox" checked class="w-9 h-5 bg-slate-800 rounded-full appearance-none checked:bg-emerald-500 relative before:content-[''] before:absolute before:w-4 before:h-4 before:bg-white before:rounded-full before:top-0.5 before:left-0.5 checked:before:translate-x-4 before:transition-transform cursor-pointer">
+                    </div>
+                    <div class="flex items-center justify-between pb-4 border-b border-white/5">
+                        <div>
+                            <p class="text-xs font-bold text-white">Automatic Payload Compression Pipeline</p>
+                            <p class="text-[11px] text-slate-500">Compress outgoing asset log tracking structures layout frames sizes up to 40% before dispatch.</p>
+                        </div>
+                        <input type="checkbox" class="w-9 h-5 bg-slate-800 rounded-full appearance-none checked:bg-emerald-500 relative before:content-[''] before:absolute before:w-4 before:h-4 before:bg-white before:rounded-full before:top-0.5 before:left-0.5 checked:before:translate-x-4 before:transition-transform cursor-pointer">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wide">Target Cluster Deployment Mode Region</label>
+                        <select class="bg-slate-900 border border-white/5 text-xs rounded-xl p-3 text-slate-300 focus:outline-none focus:border-emerald-500/40 w-full cursor-pointer">
+                            <option>AWS Asia Pacific Gateway Nodes Cluster Core (India Core)</option>
+                            <option>GCP Europe Micro Services Grid Matrix (Frankfurt)</option>
+                            <option>Azure United States East Edge Load Balancer Array</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        let counterId = 3;
+
+        function switchDashboardTab(targetTabId) {
+            const tabsPool = ['dashboard', 'pipelines', 'logs', 'billing', 'settings'];
+            
+            tabsPool.forEach(tab => {
+                const sectionNode = document.getElementById(`section-${tab}`);
+                const navButtonNode = document.getElementById(`nav-${tab}`);
+                
+                if (sectionNode) sectionNode.classList.replace('block', 'hidden');
+                
+                if (navButtonNode) {
+                    navButtonNode.classList.remove('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/10');
+                    navButtonNode.classList.add('text-slate-400');
+                }
+            });
+
+            const targetSection = document.getElementById(`section-${targetTabId}`);
+            const targetButton = document.getElementById(`nav-${targetTabId}`);
+            
+            if (targetSection) targetSection.classList.replace('hidden', 'block');
+            if (targetButton) {
+                targetButton.classList.remove('text-slate-400');
+                targetButton.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/10');
+            }
+
+            if (targetTabId === 'logs') {
+                appendLiveConsoleTickLog();
+            }
+        }
+
+        function updatePipelineDisplayCount() {
+            const rowCount = document.getElementById('pipeline-table-body').getElementsByTagName('tr').length;
+            const counters = document.querySelectorAll('.active-node-display-count');
+            counters.forEach(el => {
+                el.textContent = `${rowCount} nodes active`;
+            });
+        }
+
+        function addNewSimulatedRow() {
+            const tableBody = document.getElementById('pipeline-table-body');
+            if(!tableBody) return;
+
+            const namesPool = ['Webhook-Relay-Node', 'Client-Metrics-Worker', 'Asset-Optimizer-Hook', 'Database-SLA-Sync'];
+            const typesPool = ['API-Relay', 'Worker-Thread', 'Asset-CDN', 'Database-SQL'];
+            const randomIdx = Math.floor(Math.random() * namesPool.length);
+            
+            const newRow = document.createElement('tr');
+            newRow.className = 'hover:bg-white/[0.02] transition-colors border-b border-white/5 animate-fade-in';
+            
+            newRow.innerHTML = `
+                <td class="p-4 pl-6 font-semibold text-white">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#10b981]"></span>
+                        ${namesPool[randomIdx]}-v${counterId}
+                    </div>
+                </td>
+                <td class="p-4 text-slate-400 font-mono text-[11px]">${typesPool[randomIdx]}</td>
+                <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-medium text-[10px]">Active</span></td>
+                <td class="p-4 text-right pr-6"><button onclick="deleteSimulatedRow(this)" class="text-slate-500 hover:text-red-400 transition-colors px-2"><i class="fa-regular fa-trash-can"></i></button></td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            counterId++;
+            updatePipelineDisplayCount();
+        }
+
+        function deleteSimulatedRow(btnNode) {
+            if(!btnNode) return;
+            btnNode.closest('tr').remove();
+            updatePipelineDisplayCount();
+        }
+
+        function appendLiveConsoleTickLog() {
+            const logsBox = document.getElementById('console-logs-container');
+            if(!logsBox) return;
+            const now = new Date();
+            const timeStr = now.toTimeString().split(' ')[0];
+            
+            const p = document.createElement('p');
+            p.className = 'text-slate-500 animate-fade-in';
+            p.innerHTML = `[2026-05-26 ${timeStr}] <span class="text-emerald-400">SUCCESS</span> Workspace status metrics logs indices mapped automatically into view successfully.`;
+            logsBox.appendChild(p);
+            logsBox.scrollTop = logsBox.scrollHeight;
+        }
+
+        updatePipelineDisplayCount();
+    </script>
+</body>
+</html>

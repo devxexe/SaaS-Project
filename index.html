@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funngro Systems - Premium Cloud Architecture Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;600;700;800&family=Inter:wght=400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#030712] font-sans antialiased overflow-x-hidden text-slate-300">
+
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[130px] -z-10 pointer-events-none"></div>
+    <div class="absolute top-1/4 right-1/4 w-[700px] h-[700px] bg-indigo-600/10 rounded-full blur-[160px] -z-10 pointer-events-none"></div>
+
+<!-- START Header / Navigation Component -->
+ <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50 px-2">
+    <div class="bg-slate-950/80 border border-white/10 backdrop-blur-xl rounded-2xl px-6 py-3.5 flex items-center justify-between shadow-[0_25px_60px_rgba(0,0,0,0.8)] relative">
+        <div class="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent"></div>
+        
+        <div class="flex items-center gap-3 cursor-pointer shrink-0 group">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
+                <i class="fa-solid fa-wind text-white text-lg"></i>
+            </div>
+            <h1 class="text-xl font-black text-white tracking-tight hidden sm:block bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Funngro</h1>
+        </div>
+
+        <nav class="hidden lg:flex items-center gap-1 bg-white/[0.03] border border-white/5 p-1 rounded-xl mx-4">
+            <a href="index.html#features" class="text-slate-400 hover:text-white px-3 py-2 text-xs font-bold rounded-lg transition-all hover:bg-white/5 flex items-center gap-2 group">
+                <span class="w-6 h-6 rounded-md bg-indigo-500/10 text-indigo-400 flex items-center justify-center group-hover:bg-indigo-500 group-hover:text-white transition-all shadow-sm">
+                    <i class="fa-solid fa-bolt text-[11px]"></i>
+                </span> 
+                <span>Features</span>
+            </a>
+            <a href="index.html#playground" class="text-slate-400 hover:text-white px-3 py-2 text-xs font-bold rounded-lg transition-all hover:bg-white/5 flex items-center gap-2 group">
+                <span class="w-6 h-6 rounded-md bg-emerald-500/10 text-emerald-400 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-all shadow-sm">
+                    <i class="fa-solid fa-sliders text-[11px]"></i>
+                </span> 
+                <span>ROI Simulator</span>
+            </a>
+            <a href="index.html#pricing" class="text-slate-400 hover:text-white px-3 py-2 text-xs font-bold rounded-lg transition-all hover:bg-white/5 flex items-center gap-2 group">
+                <span class="w-6 h-6 rounded-md bg-teal-500/10 text-teal-400 flex items-center justify-center group-hover:bg-teal-500 group-hover:text-white transition-all shadow-sm">
+                    <i class="fa-solid fa-tag text-[11px]"></i>
+                </span> 
+                <span>Pricing</span>
+            </a>
+            
+            <div class="w-[1px] h-5 bg-white/10 mx-2"></div>
+            
+            <a href="docs.html" class="text-slate-400 hover:text-cyan-400 px-3 py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-2 group">
+                <span class="w-6 h-6 rounded-md bg-cyan-500/10 text-cyan-400 flex items-center justify-center group-hover:bg-cyan-500 group-hover:text-white transition-all">
+                    <i class="fa-solid fa-book text-[11px]"></i>
+                </span> 
+                <span>Docs</span>
+            </a>
+            <a href="support.html" class="text-slate-400 hover:text-amber-400 px-3 py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-2 group">
+                <span class="w-6 h-6 rounded-md bg-amber-500/10 text-amber-400 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all">
+                    <i class="fa-solid fa-headset text-[11px]"></i>
+                </span> 
+                <span>Support</span>
+            </a>
+            <a href="status.html" class="text-slate-400 hover:text-rose-400 px-3 py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-2 group">
+                <span class="relative flex h-2 w-2 items-center justify-center">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-rose-500"></span>
+                </span> 
+                <span>Status</span>
+            </a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-3 shrink-0">
+            <a href="signin.html" class="text-slate-400 hover:text-white text-xs font-bold px-3 py-2 transition-all flex items-center gap-2 group">
+                <i class="fa-solid fa-right-to-bracket text-xs text-slate-500 group-hover:text-indigo-400 transition-colors"></i> 
+                <span>Sign In</span>
+            </a>
+            <a href="dashboard.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white hover:brightness-110 shadow-lg shadow-indigo-500/20 transition-all text-xs font-bold group">
+                <i class="fa-solid fa-chart-pie text-[11px] group-hover:rotate-12 transition-transform duration-300"></i> 
+                <span>Console Dashboard</span>
+            </a>
+        </div>
+
+        <button id="menu-btn" aria-label="Toggle Navigation" class="block lg:hidden text-slate-400 hover:text-white focus:outline-none p-2.5 rounded-xl bg-white/5 border border-white/5 transition-all">
+            <i id="menu-icon" class="fa-solid fa-bars text-base"></i>
+        </button>
+
+        <div id="mobile-menu" class="hidden absolute top-[calc(100%+0.75rem)] right-0 w-64 p-4 rounded-2xl bg-slate-950/98 border border-white/10 backdrop-blur-2xl shadow-2xl flex flex-col gap-1 text-sm font-medium z-50">
+            <span class="text-[9px] uppercase font-mono tracking-widest text-slate-600 px-3 mt-1 mb-1">Product Matrix</span>
+            <a href="index.html#features" class="text-slate-400 hover:text-white px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs flex items-center gap-3"><i class="fa-solid fa-bolt text-indigo-400 w-4 text-center"></i> Features</a>
+            <a href="index.html#playground" class="text-slate-400 hover:text-white px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs flex items-center gap-3"><i class="fa-solid fa-sliders text-emerald-400 w-4 text-center"></i> ROI Simulator</a>
+            <a href="index.html#pricing" class="text-slate-400 hover:text-white px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs flex items-center gap-3"><i class="fa-solid fa-tag text-teal-400 w-4 text-center"></i> Pricing</a>
+            
+            <div class="h-[1px] bg-white/5 my-1"></div>
+            
+            <span class="text-[9px] uppercase font-mono tracking-widest text-slate-600 px-3 mb-1">System Gateways</span>
+            <a href="docs.html" class="text-slate-400 hover:text-cyan-400 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs flex items-center gap-3"><i class="fa-solid fa-book text-cyan-400 w-4 text-center"></i> API Docs</a>
+            <a href="support.html" class="text-slate-400 hover:text-amber-400 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs flex items-center gap-3"><i class="fa-solid fa-headset text-amber-400 w-4 text-center"></i> Support Hub</a>
+            <a href="status.html" class="text-slate-400 hover:text-rose-400 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs flex items-center gap-3"><i class="fa-solid fa-circle-notch text-rose-400 w-4 text-center"></i> System Status</a>
+            
+            <div class="h-[1px] bg-white/5 my-1.5"></div>
+            
+            <div class="grid grid-cols-1 gap-2 pt-1">
+                <a href="signin.html" class="w-full text-center text-slate-300 hover:text-white bg-white/5 border border-white/5 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-right-to-bracket text-slate-500"></i> Sign In
+                </a>
+                <a href="dashboard.html" class="w-full text-center text-white bg-gradient-to-r from-indigo-600 to-indigo-500 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-indigo-500/20">
+                    <i class="fa-solid fa-chart-pie"></i> Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- END Header / Navigation Component -->
+
+<!-- START Hero Section & Console Preview Card-->
+ <section class="relative pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-semibold text-xs tracking-wider uppercase mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Production Ready Architecture Engine
+    </div>
+    
+    <h1 class="font-heading font-black text-5xl md:text-7xl leading-[1.15] max-w-5xl tracking-tight text-white mb-6">
+        Next-Gen Software Pipelines with <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">Zero Friction</span>
+    </h1>
+    
+    <p class="text-base md:text-lg text-slate-400 max-w-3xl mb-10 leading-relaxed">
+        A premium infrastructure management interface optimized for standard data scaling metrics, live logging telemetry, and seamless conversion responsiveness.
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 mb-16 justify-center w-full max-w-sm sm:max-w-none">
+        <a href="auth.html" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold hover:scale-[1.02] transition-all shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2 text-sm">
+            <i class="fa-solid fa-rocket"></i> Launch Live Portal
+        </a>
+        <a href="docs.html" class="px-8 py-4 rounded-2xl bg-slate-900 hover:bg-slate-850 text-slate-300 border border-white/5 font-bold transition-all flex items-center justify-center gap-2 text-sm">
+            <i class="fa-solid fa-book-open"></i> Explore API Documentation
+        </a>
+    </div>
+
+    <div class="w-full max-w-5xl glass-card rounded-2xl p-3 border border-white/10 glow-indigo relative cursor-pointer group" onclick="window.location.href='auth.html'">
+        <div class="flex items-center gap-2 mb-3 px-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/60"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500/60"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500/60"></span>
+            <span class="text-xs text-slate-500 ml-4 font-mono transition-colors group-hover:text-slate-300">funngro-admin.io/auth-portal (Click to Initialize Session)</span>
+        </div>
+        
+        <div class="w-full h-[320px] bg-slate-950 rounded-xl overflow-hidden relative flex flex-col p-6 text-left border border-white/5 bg-gradient-to-b from-slate-950 to-slate-900">
+            <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="h-3 w-3 bg-emerald-500 rounded-full animate-ping"></div>
+                    <div class="h-3 w-32 bg-slate-800 rounded"></div>
+                </div>
+                <span class="text-[10px] px-2.5 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full font-mono font-bold tracking-wide uppercase">Secure Gateway</span>
+            </div>
+            <div class="grid grid-cols-3 gap-4 my-auto">
+                <div class="h-24 bg-slate-900/60 border border-white/5 rounded-xl p-4 flex flex-col justify-between"><div class="h-3 w-16 bg-slate-700 rounded"></div><div class="h-6 w-20 bg-emerald-500/20 text-emerald-400 rounded font-bold font-mono text-center flex items-center justify-center text-xs">99.98%</div></div>
+                <div class="h-24 bg-slate-900/60 border border-white/5 rounded-xl p-4 flex flex-col justify-between"><div class="h-3 w-16 bg-slate-700 rounded"></div><div class="h-6 w-16 bg-indigo-500/20 text-indigo-400 rounded font-bold font-mono text-center flex items-center justify-center text-xs">Active</div></div>
+                <div class="h-24 bg-slate-900/60 border border-white/5 rounded-xl p-4 flex flex-col justify-between"><div class="h-3 w-16 bg-slate-700 rounded"></div><div class="h-6 w-12 bg-white/10 text-white rounded font-bold font-mono text-center flex items-center justify-center text-xs">v1.4</div></div>
+            </div>
+            <div class="text-[10px] text-slate-600 font-mono text-center w-full pt-2 border-t border-white/5">Click anywhere on this container block to access live registration node portal gateway.</div>
+        </div>
+    </div>
+</section>
+<!-- END Hero Section & Console Preview Card -->
+
+<!-- START Features Grid System-->
+ <section id="features" class="py-24 max-w-7xl mx-auto px-6 scroll-mt-20">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white tracking-tight">Engineered for Modern Teams</h2>
+        <p class="text-slate-400 text-sm mt-2">Discover the robust technical structural advantages built directly inside our environment core layout systems.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-mobile-screen"></i></div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2">Ultra Responsive Fluidity</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Perfect layout auto-scaling mechanics configured seamlessly across mobile viewports, desktops, or tablet arrays without code leaks.</p>
+        </div>
+        <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-bolt"></i></div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2">Blazing Pipeline Execution</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Optimized client-side script allocations guarantee zero lag tracking parameters response delays and faster frame index evaluation.</p>
+        </div>
+        <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2">Secure Structural Layer</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Hardened node environment endpoints protected schemas layouts adhering strictly to standard encryption workflow formats.</p>
+        </div>
+    </div>
+</section>
+<!-- END Features Grid System -->
+
+<!-- START Interactive ROI Simulator Playground-->
+ <section id="playground" class="py-20 px-6 bg-slate-950/40 border-y border-white/5 scroll-mt-20">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-sm"><i class="fa-solid fa-calculator"></i></div>
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-white tracking-tight">Simulate Workspace Return Capital Metrics</h2>
+            <p class="text-slate-400 text-sm leading-relaxed">Drag the algorithmic metrics bars on the right panel to dynamically calculate estimated resource timeline optimization output values automatically in real-time.</p>
+        </div>
+        
+        <div class="glass-card p-8 rounded-2xl border border-white/10 glow-emerald space-y-6">
+            <div>
+                <div class="flex justify-between text-xs font-semibold mb-2"><span class="text-slate-400 uppercase tracking-wider">Active Team Scale Size:</span><span class="text-emerald-400 font-mono font-bold text-sm" id="team-val">10 members</span></div>
+                <input type="range" id="team-slider" min="1" max="100" value="10" class="w-full accent-emerald-400 bg-slate-900 rounded-lg appearance-none h-2 cursor-pointer" oninput="calculateROIMetrics()">
+            </div>
+            <div>
+                <div class="flex justify-between text-xs font-semibold mb-2"><span class="text-slate-400 uppercase tracking-wider">Manual Setup Logged / Week:</span><span class="text-emerald-400 font-mono font-bold text-sm" id="hours-val">15 hrs</span></div>
+                <input type="range" id="hours-slider" min="5" max="40" value="15" class="w-full accent-emerald-400 bg-slate-900 rounded-lg appearance-none h-2 cursor-pointer" oninput="calculateROIMetrics()">
+            </div>
+            <div class="p-5 rounded-xl bg-slate-950 border border-white/5 text-center grid grid-cols-2 gap-4 divide-x divide-white/5">
+                <div>
+                    <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Time Trimmed / Yr</p>
+                    <p class="font-heading text-xl md:text-2xl font-black text-white font-mono" id="saved-hours">7,800 hrs</p>
+                </div>
+                <div>
+                    <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Estimated Savings</p>
+                    <p class="font-heading text-xl md:text-2xl font-black text-emerald-400 font-mono" id="saved-money">₹5,85,000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END Interactive ROI Simulator Playground -->
+
+<!-- START Enterprise Pricing Cards & Footer Component-->
+ <section id="pricing" class="py-24 max-w-7xl mx-auto px-6 scroll-mt-20">
+    <div class="text-center mb-16">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white tracking-tight">Transparent Enterprise Pricing Tiers</h2>
+        <p class="text-slate-400 text-sm mt-1 mb-6">Choose the subscription parameters configuration that fits your pipeline nodes load.</p>
+        <div class="inline-flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-white/5">
+            <button id="toggle-monthly" onclick="togglePricingDuration('monthly')" class="px-4 py-1.5 text-xs font-bold rounded-lg bg-emerald-500 text-white transition-all">Monthly Sync</button>
+            <button id="toggle-yearly" onclick="togglePricingDuration('yearly')" class="px-4 py-1.5 text-xs font-bold rounded-lg text-slate-500 hover:text-slate-300 transition-all">Yearly Node (-20%)</button>
+        </div>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+        <div class="glass-card p-8 rounded-2xl border border-white/5 flex flex-col justify-between bg-gradient-to-b from-slate-900/40 to-slate-950/20">
+            <div>
+                <h3 class="text-slate-400 font-bold text-xs uppercase tracking-wider">Standard Sandbox Layer</h3>
+                <div class="my-4 flex items-baseline gap-1"><span class="text-5xl font-black font-heading text-white">₹0</span><span class="text-xs text-slate-500 font-mono">/ forever</span></div>
+                <ul class="text-xs text-slate-400 flex flex-col gap-3 mt-6 border-t border-white/5 pt-6">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> 3 Base Sandbox Deployments Hook</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Core Gateway Logs Telemetry Analytics</li>
+                </ul>
+            </div>
+            <button onclick="window.location.href='auth.html'" class="mt-8 w-full py-3.5 rounded-xl bg-slate-900 hover:bg-slate-850 border border-white/5 text-slate-300 text-xs font-bold transition-all shadow-md">Deploy Free Layer</button>
+        </div>
+        
+        <div class="glass-card p-8 rounded-2xl border border-emerald-500/30 glow-emerald flex flex-col justify-between relative bg-gradient-to-b from-slate-900/60 to-slate-950/40">
+            <div class="absolute -top-3 right-6 px-3 py-1 bg-emerald-500 text-white text-[9px] font-extrabold uppercase rounded-full tracking-wider shadow-md">Recommended Node</div>
+            <div>
+                <h3 class="text-emerald-400 font-bold text-xs uppercase tracking-wider">Scale Enterprise Pro</h3>
+                <div class="my-4 flex items-baseline gap-1"><span class="text-5xl font-black font-heading text-white" id="price-display">₹3,999</span><span class="text-xs text-slate-500 font-mono" id="period-display">/ month</span></div>
+                <ul class="text-xs text-slate-300 flex flex-col gap-3 mt-6 border-t border-white/5 pt-6">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Unlimited Live Production Hooks Systems</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Advanced Priority Cluster Region Support</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Automated Payload Compression Pipeline</li>
+                </ul>
+            </div>
+            <button onclick="window.location.href='auth.html'" class="mt-8 w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:brightness-110 text-white text-xs font-bold shadow-lg shadow-emerald-500/15 transition-all">Acquire Premium License</button>
+        </div>
+    </div>
+</section>
+
+<!-- END Enterprise Pricing Cards & Footer Component-->
+
+<!-- START FOOTER -->
+<!-- =========================================================================
+     PART 5 (PREMIUM): MULTI-COLUMN INTERACTIVE FOOTER WITH QUICK LINKS
+     ========================================================================= -->
+<footer class="bg-slate-950 border-t border-white/5 pt-16 pb-12 px-6 relative overflow-hidden">
+    <!-- Subtle footer background glow to maintain theme continuity -->
+    <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-indigo-500/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-white/5">
+        
+        <!-- Column 1: Personal Branding & Socials -->
+        <div class="flex flex-col items-center md:items-start space-y-5">
+            <div class="p-4 rounded-2xl bg-slate-900/40 border border-white/5 backdrop-blur-sm w-full max-w-[260px] text-center md:text-left shadow-lg shadow-indigo-500/5">
+                <span class="text-[10px] uppercase tracking-widest text-slate-500 font-mono block mb-1">Architecture Lead</span>
+                <span class="text-sm font-heading font-bold tracking-wide text-slate-200">
+                    Crafted by <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent font-black hover:brightness-110 transition-all cursor-pointer">Divyansh</span>
+                </span>
+            </div>
+            
+            <!-- Social Icons with premium micro-interactions -->
+            <div class="flex items-center gap-3">
+                <a href="YOUR_LINKEDIN_PROFILE_URL" target="_blank" aria-label="LinkedIn Profile" class="w-10 h-10 rounded-xl bg-slate-900 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-indigo-500/40 hover:bg-indigo-500/10 transition-all group shadow-md">
+                    <i class="fa-brands fa-linkedin-in text-base group-hover:scale-110 transition-transform"></i>
+                </a>
+                <a href="YOUR_INSTAGRAM_PROFILE_URL" target="_blank" aria-label="Instagram Profile" class="w-10 h-10 rounded-xl bg-slate-900 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-pink-500/40 hover:bg-pink-500/10 transition-all group shadow-md">
+                    <i class="fa-brands fa-instagram text-base group-hover:scale-110 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Navigation Links -->
+        <div class="flex flex-col items-center md:items-start space-y-4">
+            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 font-mono">Quick Exploration</h4>
+            <ul class="flex flex-col items-center md:items-start gap-2.5 text-sm">
+                <li><a href="#features" class="text-slate-500 hover:text-emerald-400 transition-colors flex items-center gap-2 group"><i class="fa-solid fa-chevron-right text-[10px] text-slate-700 group-hover:text-emerald-400 transition-colors"></i> Core Features</a></li>
+                <li><a href="#playground" class="text-slate-500 hover:text-emerald-400 transition-colors flex items-center gap-2 group"><i class="fa-solid fa-chevron-right text-[10px] text-slate-700 group-hover:text-emerald-400 transition-colors"></i> Interactive ROI Simulator</a></li>
+                <li><a href="#pricing" class="text-slate-500 hover:text-emerald-400 transition-colors flex items-center gap-2 group"><i class="fa-solid fa-chevron-right text-[10px] text-slate-700 group-hover:text-emerald-400 transition-colors"></i> Pricing Architecture</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: System Console Links -->
+        <div class="flex flex-col items-center md:items-start space-y-4">
+            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 font-mono">System Gateways</h4>
+            <div class="grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm w-full max-w-[280px] md:max-w-none text-center md:text-left">
+                <a href="docs.html" class="text-slate-500 hover:text-indigo-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start"><i class="fa-solid fa-book text-xs text-indigo-500/60"></i> API Docs</a>
+                <a href="status.html" class="text-slate-500 hover:text-emerald-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start"><i class="fa-solid fa-circle-check text-xs text-emerald-500/60"></i> Live Status</a>
+                <a href="auth.html" class="text-slate-500 hover:text-teal-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start"><i class="fa-solid fa-lock text-xs text-teal-500/60"></i> Client Portal</a>
+                <a href="support.html" class="text-slate-500 hover:text-amber-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start"><i class="fa-solid fa-headset text-xs text-amber-500/60"></i> Support Hub</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Bar: Copyright & Operational Latency Metrics -->
+    <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <p class="text-[11px] text-slate-600 font-mono">© 2026 Funngro Cloud Systems Engine Workspace Architecture Matrix.</p>
+        <a href="status.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 transition-all font-mono text-[10px]">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Systems Operational (Check Live Latency)
+        </a>
+    </div>
+</footer>
+<!-- END FOOTER -->
+
+
+    <script>
+    // =========================================================================
+    // 1. MINIMAL RESPONSIVE NAVBAR ENGINE (UPDATED & SECURE)
+    // =========================================================================
+    document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (menuBtn && mobileMenu && menuIcon) {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+            
+            // Icon transformation switch bars <-> cross smooth layout
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-base';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-base';
+            }
+        });
+
+        // Auto close handler inside links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-base';
+            });
+        });
+
+        // Window interaction click boundary reset
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-base';
+            }
+        });
+    }
+});
+
+    // =========================================================================
+    // 2. LIVE ROI PLAYGROUND SIMULATOR MATH
+    // =========================================================================
+    function calculateROIMetrics() {
+        const team = parseInt(document.getElementById('team-slider').value);
+        const hours = parseInt(document.getElementById('hours-slider').value);
+        
+        document.getElementById('team-val').textContent = `${team} ${team === 1 ? 'member' : 'members'}`;
+        document.getElementById('hours-val').textContent = `${hours} hrs`;
+        
+        const totalHoursSaved = team * hours * 52; 
+        const moneySaved = totalHoursSaved * 75; 
+        
+        document.getElementById('saved-hours').textContent = `${totalHoursSaved.toLocaleString()} hrs`;
+        document.getElementById('saved-money').textContent = `₹${moneySaved.toLocaleString()}`;
+    }
+
+    // =========================================================================
+    // 3. PRICING PERIOD TOGGLE COMPONENT LOGIC
+    // =========================================================================
+    function togglePricingDuration(mode) {
+        const btnMonthly = document.getElementById('toggle-monthly');
+        const btnYearly = document.getElementById('toggle-yearly');
+        const priceVal = document.getElementById('price-display');
+        const periodVal = document.getElementById('period-display');
+        
+        if(mode === 'yearly') {
+            btnMonthly.className = "px-4 py-1.5 text-xs font-bold rounded-lg text-slate-500 hover:text-slate-300 transition-all";
+            btnYearly.className = "px-4 py-1.5 text-xs font-bold rounded-lg bg-emerald-500 text-white transition-all";
+            priceVal.textContent = "₹3,199";
+            periodVal.textContent = "/ month (billed annually)";
+        } else {
+            btnYearly.className = "px-4 py-1.5 text-xs font-bold rounded-lg text-slate-500 hover:text-slate-300 transition-all";
+            btnMonthly.className = "px-4 py-1.5 text-xs font-bold rounded-lg bg-emerald-500 text-white transition-all";
+            priceVal.textContent = "₹3,999";
+            periodVal.textContent = "/ month";
+        }
+    }
+
+    // Initial trigger for ROI calculations on load
+    calculateROIMetrics();
+</script>
+</body>
+</html>

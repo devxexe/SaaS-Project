@@ -1,0 +1,58 @@
+/* =========================================================================
+   1. GLOBAL CONFIGURATIONS & CORE THEME OVERRIDES
+   ========================================================================= */
+body {
+    background-color: #030712;
+    color: #f3f4f6;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, .font-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* =========================================================================
+   2. CUSTOM UI GLASSMORPHISM COMPONENT ARCHITECTURE
+   ========================================================================= */
+.glass-header {
+    background: rgba(3, 7, 18, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: rgba(11, 19, 41, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* =========================================================================
+   3. RADIANT ILLUMINATION INTERFACES (Glow Effects Matrix)
+   ========================================================================= */
+.glow-emerald {
+    box-shadow: 0 0 60px -15px rgba(16, 185, 129, 0.15);
+}
+
+.glow-indigo {
+    box-shadow: 0 0 60px -15px rgba(99, 102, 241, 0.15);
+}
+
+/* =========================================================================
+   4. WORKSPACE CONTROLLER RANGE SLIDER LAYOUT STYLING
+   ========================================================================= */
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #10b981;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
